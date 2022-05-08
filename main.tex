@@ -1,0 +1,29 @@
+\documentclass{ctexbook}
+% \documentclass[none]{ctexbook}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+% 使用[javascript regex](https://regexr.com/)，替换掉mathpix识别出来的组合数
+% search: \\left\(\\begin{array}{\w}\s*([\S\ ]+\b)\s*\\\\\s*([\S\ ]+\b)\s*\\end{array}\\right\)
+% replace: {$1 \choose $2}
+\newcommand{\floor}[1]{\lfloor {#1} \rfloor}
+\newcommand{\ceil}[1]{\lceil {#1} \rceil}
+\newcommand{\infin}{\infty}     %markdown支持
+
+% \setCJKmainfont[BoldFont={FZHei-B01},ItalicFont={FZKai-Z03}]{FZShuSong-Z01}
+% \setCJKsansfont[BoldFont={FZHei-B01}]{FZKai-Z03}
+% \setCJKmonofont[BoldFont={FZHei-B01}]{FZFangSong-Z02}
+% \setCJKfamilyfont{zhsong}{FZShuSong-Z01}
+% \setCJKfamilyfont{zhhei}{FZHei-B01}
+% \setCJKfamilyfont{zhkai}[BoldFont={FZHei-B01}]{FZKai-Z03}
+% \setCJKfamilyfont{zhfs}[BoldFont={FZHei-B01}]{FZFangSong-Z02}
+
+\begin{document}
+
+\include{chapter/ch5}
+
+\end{document}

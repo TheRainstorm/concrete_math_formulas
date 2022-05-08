@@ -1,0 +1,622 @@
+\setcounter{chapter}{4}
+\chapter{5}
+
+\setcounter{equation}{0}
+\begin{equation}
+    {r \choose k}= \begin{cases}\frac{r(r-1) \cdots(r-k+1)}{k(k-1) \cdots(1)}=\frac{r^{\underline{k}}}{k !}, & \text { 整数 } k \geqslant 0 ; \\
+             0,                                                                           & \text { 整数 } k<0 .\end{cases}
+\end{equation}
+
+吸收恒等式：
+\setcounter{equation}{5}
+\begin{equation}
+    k{r \choose k}=r{r-1 \choose k-1}, \quad k \text{ 是整数. }
+\end{equation}
+
+\begin{equation}
+    (r-k){r \choose k}=r{r-1 \choose k}, k \text { 是整数. }
+\end{equation}
+
+加法公式：
+\begin{equation}
+    {r \choose k}={r-1 \choose k}+{r-1 \choose k-1}, k \text { 是整数. }
+\end{equation}
+
+上下指标固定差的二项式系数求和
+\begin{equation}
+    \begin{aligned}
+    \sum_{k \leqslant n}{r+k \choose k} &={r \choose 0}+{r+1 \choose 1}+\cdots+{r+n \choose n} \\
+    &={r+n+1 \choose n}, n \text { 是整数. }
+    \end{aligned}
+\end{equation}
+    
+关于上指标求和（ summation on the upper index ）：
+\begin{equation}
+    \begin{aligned}
+    \sum_{0 \leqslant k \leqslant n}{k \choose m} &={0 \choose m}+{1 \choose m}+\cdots+{n \choose m} \\
+    &={n+1 \choose m+1}, \quad \text { 整数 } m, n \geqslant 0 .
+    \end{aligned}
+\end{equation}
+
+\begin{equation}
+    \sum{x \choose m} \delta x={x \choose m+1}+C
+\end{equation}
+
+二项式定理
+\begin{equation}
+    (x+y)^{r}=\sum_{k}{r \choose k} x^{k} y^{r-k} \text {, 整数 } r \geqslant 0 \text { 或者 }|x / y|<1 .
+\end{equation}
+
+通过泰勒级数可证明r非整数时，二项式定理成立：
+\begin{equation}
+    (1+z)^{r}=\sum_{k}{r \choose k} z^{k},|z|<1
+\end{equation}
+
+反转上指标 （ negating the upper index ）
+\begin{equation}
+    {r \choose k}=(-1)^{k}{k-r-1 \choose k}, k \text { 是整数. }
+\end{equation}
+
+反转上指标的对称形式
+\begin{equation}
+    (-1)^{m}{-n-1 \choose m}=(-1)^{n}{-m-1 \choose n} = {m+n \choose n}, \quad \text { 整数 } m, n \geqslant 0 ;
+\end{equation}
+
+\begin{equation}
+    \begin{aligned}
+    \sum_{k \leqslant m}{r \choose k}(-1)^{k} &={r \choose 0}-{r \choose 1}+\cdots+(-1)^{m}{r \choose m} \\
+    &=(-1)^{m}{r-1 \choose m}, \quad m \text { 是整数. }
+    \end{aligned}
+\end{equation}
+
+\setcounter{equation}{17}
+二次项系数的部分和乘以偏离中心距离可得到封闭解。通过对m归纳证明。
+\begin{equation}
+    \sum_{k\le m} {r \choose k}(\frac{r}{2}-k) = \frac{m+1}{2}{r \choose m+1}
+\end{equation}
+
+二项级数的部分和引导出另一种有意思的关系式。
+\begin{equation}
+    \sum_{k \leqslant m}{m+r \choose k} x^{k} y^{m-k}=\sum_{k \leqslant m}{-r \choose k}(-x)^{k}(x+y)^{m-k}, m \text { 是整数. }
+\end{equation}
+
+可通过对m进行归纳证明：
+\begin{align*}
+    S_{m}=(x+y) S_{m-1}+{-r \choose m}(-x)^{m},
+\end{align*}
+或者由二项式定理得到左右两边均为：
+\begin{align*}
+    (x+y)^{m+r}y^{-r} = (x+y)^{m+r}(-x+x+y)^{-r}
+\end{align*}
+
+上式另x=y=1, r=m+1，得到：
+\begin{equation}
+    \sum_{k \leqslant m}{m+k \choose k} 2^{-k}=2^{m} \text {, 整数 } m \geqslant 0 .
+\end{equation}
+
+三项式版恒等式。k=1时为吸收恒等式
+\begin{equation}
+    {r \choose m}{m \choose k}={r \choose k}{r-k \choose m-k}, \quad m, k \text { 是整数. }
+\end{equation}
+
+表5-3 二项式系数的乘积之和
+
+范德蒙德卷积（ vandermonde convolution ）
+\begin{equation}
+    \sum_{k}{r \choose m+k}{s \choose n-k}={r+s \choose m+n}, m, n \text { 是整数. }
+\end{equation}
+
+\begin{equation}
+    \sum_{k}{l \choose m+k}{s \choose n+k}={l+s \choose l-m+n}, \text {整数} l \geqslant 0, m, n \text { 是整数. }
+\end{equation}
+
+\begin{equation}
+\sum_{k}{l \choose m+k}{s+k \choose n}(-1)^{k}=(-1)^{l+m}{s-m \choose n-l}, \text{整数} l \geqslant 0, m, n\text{是整数 }
+\end{equation}
+
+\begin{equation}
+    \sum_{k \leqq l}{l-k \choose m}{s \choose k-n}(-1)^{k}=(-1)^{l+m}{s-m-1 \choose l-m-n}, \text{整数} l, m, n \geqslant 0 
+\end{equation}
+
+\begin{equation}
+    \sum_{-q \leqslant k \leqslant l}{l-k \choose m}{q+k \choose n}={l+q+1 \choose m+n+1}, \text{整数} m, n \geqslant 0, \text{整数} l+q \geqslant 0
+\end{equation}
+
+\setcounter{equation}{27}
+\begin{equation}
+    \sum_{k}{m-r+s \choose k}{n+r-s \choose n-k}{r+k \choose m+n}={r \choose m}{s \choose n}, \quad m, n \text { 是整数 }
+\end{equation}
+
+\begin{equation}
+    \sum_{k}{a+b \choose a+k}{b+c \choose b+k}{c+a \choose c+k}(-1)^{k}=\frac{(a+b+c) !}{a ! b ! c !}, \text { 整数 } a, b, c \geqslant 0
+\end{equation}
+
+\begin{equation}
+    \sum_{k}{a+b \choose a+k}{b+a \choose b+k}(-1)^{k}=\frac{(a+b) !}{a ! b !} \text {, 整数 } a, b \geqslant 0 \text {, }
+\end{equation}
+
+\setcounter{equation}{33}
+\begin{equation}
+    r^{\underline{k}}(r-\frac{1}{2})^{\underline{k}}=(2 r)^{\underline{2k}} / 2^{2 k} \text {, 整数 } k \geqslant 0
+\end{equation}
+
+\begin{equation}
+    {r \choose k}{r-1 / 2 \choose k}={2 r \choose 2 k}{2 k \choose k} / 2^{2 k}, k \text { 是整数. }
+\end{equation}
+
+\begin{equation}
+    {n-1 / 2 \choose n}={2 n \choose n} / 2^{2 n}, n \text { 是整数. }
+\end{equation}
+
+\begin{equation}
+    {-1 / 2 \choose n}=\left(\frac{-1}{4}\right)^{n}{2 n \choose n}, n \text { 是整数. }
+\end{equation}
+
+\setcounter{equation}{39}
+
+\begin{equation}
+    \Delta^{n} f(x)=\sum_{k}{n \choose k}(-1)^{n-k} f(x+k) \text {, 整数 } n \geqslant 0 \text {. }
+\end{equation}
+
+\begin{equation}
+    \sum_{k}{n \choose k} \frac{(-1)^{k}}{x+k}=\frac{n !}{x(x+1) \cdots(x+n)}=x^{-1}{x+n \choose n}^{-1}, \quad x \notin\{0,-1, \cdots,-n\}
+\end{equation}
+
+\begin{equation}
+    \sum_{k}{n \choose k}(-1)^{k}\left(a_{0}+a_{1} k+\cdots+a_{n} k^{n}\right)=(-1)^{n} n ! a_{n}, \text { 整数 } n \geqslant 0
+\end{equation}
+
+\setcounter{equation}{44}
+\begin{equation}
+    g(a+x)=\frac{g(a)}{0 !} x^{\underline{0}}+\frac{\Delta g(a)}{1 !} x^{\underline{1}}+\frac{\Delta^{2} g(a)}{2 !} x^{\underline{2}}+\frac{\Delta^{3} g(a)}{3 !} x^{\underline{3}}+\cdots
+\end{equation}
+
+\begin{equation}
+    x !=\sum_{n} S_{n}{x \choose n}=S_{0}{x \choose 0}+S_{1}{x \choose 1}+S_{2}{x \choose 2}+\cdots
+\end{equation}
+
+\begin{equation}
+    \ln x !=\sum_{n} s_{n}{x \choose n}=s_{0}{x \choose 0}+s_{1}{x \choose 1}+s_{2}{x \choose 2}+\cdots .
+\end{equation}
+
+\begin{align*}
+    s_{n} &=\left.\Delta^{n}(\ln x !)\right|_{x=0} \\
+        &=\left.\Delta^{n-1}(\ln (x+1))\right|_{x=0} \\
+        &=\sum_{k}{n-1 \choose k}(-1)^{n-1-k} \ln (k+1) .
+\end{align*}
+
+\begin{equation}
+    g(n)=\sum_{k}{n \choose k}(-1)^{k} f(k) \Leftrightarrow f(n)=\sum_{k}{n \choose k}(-1)^{k} g(k)
+\end{equation}
+
+\begin{equation}
+    n !=\sum_{k} h(n, k)=\sum_{k}{n \choose k}D_{n-k}=\sum_{k}{n \choose k} D_{k}, \text { 整数 } n \geqslant 0
+\end{equation}
+
+\begin{equation}
+    D_{n}=\sum_{0 \leqslant k \leqslant n} \frac{n !}{(n-k) !}(-1)^{n+k}=n ! \sum_{0 \leqslant k \leqslant n} \frac{(-1)^{k}}{k !}
+\end{equation}
+
+误差：
+\begin{align*}
+    n ! \sum_{k>n} \frac{(-1)^{k}}{k !} &=\frac{(-1)^{n+1}}{n+1} \sum_{k \geqslant 0}(-1)^{k} \frac{(n+1) !}{(k+n+1) !} \\
+    &=\frac{(-1)^{n+1}}{n+1}\left(1-\frac{1}{n+2}+\frac{1}{(n+2)(n+3)}-\cdots\right)
+\end{align*}
+约为1/n
+
+\begin{equation}
+    D_{n}=\left\lfloor\frac{n !}{\mathrm{e}}+\frac{1}{2}\right\rfloor+[n=0]
+\end{equation}
+
+\section{生成函数}
+\begin{equation}
+    A(z)=a_{0}+a_{1} z+a_{2} z^{2}+\cdots=\sum_{k \geqslant 0} a_{k} z^{k}
+\end{equation}
+
+\begin{equation}
+    \left[z^{n}\right] A(z)=a_{n}
+\end{equation}
+
+\begin{equation}
+    c_{n}= [z^{n}]A(z)B(z) = \sum_{k=0}^{n} a_{k} b_{n-k}
+\end{equation}
+
+\begin{equation}
+    \sum_{k=0}^{n}{r \choose k}{r \choose n-k}(-1)^{k}=(-1)^{n / 2}{r \choose n / 2}[n \text { 是偶数 }]
+\end{equation}
+
+\begin{equation}
+    \frac{1}{(1-z)^{n+1}}=\sum_{k \geqslant 0}\left(\begin{array}{c}
+    n+k \\
+    n
+    \end{array}\right) z^{k}, \text { 整数 } n \geqslant 0
+\end{equation}
+
+\begin{equation}
+    \frac{z^{n}}{(1-z)^{n+1}}=\sum_{k \geqslant 0}\left(\begin{array}{l}
+    k \\
+    n
+    \end{array}\right) z^{k} \text {, 整数 } n \geqslant 0
+\end{equation}
+
+广义二项级数与广义指数级数
+\begin{equation}
+    \mathcal{B}_{t}(z)=\sum_{k \geqslant 0}(t k)^{\frac{k-1}{}} \frac{z^{k}}{k !} ; \quad \mathcal{E}_{t}(z)=\sum_{k \geqslant 0}(t k+1)^{k-1} \frac{z^{k}}{k !}
+\end{equation}
+
+\begin{align*}
+    \mathcal{B}_{0}(z)=1+z ; \quad \mathcal{E}_{0}(z)=\mathrm{e}^{z}
+\end{align*}
+
+\begin{equation}
+    \mathcal{B}_{t}(z)^{1-t}-\mathcal{B}_{t}(z)^{-t}=z ; \quad \mathcal{E}_{t}(z)^{-t} \ln \mathcal{E}_{t}(z)=z
+\end{equation}
+
+\begin{equation}
+    \begin{aligned}
+    \mathcal{B}_{t}(z)^{r}=\sum_{k \geqslant 0}{t k+r \choose k} \frac{r}{t k+r} z^{k} ; \\
+    & \mathcal{E}_{t}(z)^{r}=\sum_{k \geqslant 0} r \frac{(t k+r)^{k-1}}{k !} z^{k} ;
+    \end{aligned}
+\end{equation}
+
+\begin{equation}
+    \begin{aligned}
+    \frac{\mathcal{B}_{t}(z)^{r}}{1-t+t \mathcal{B}_{t}(z)^{-1}}=\sum_{k \geqslant 0}{t k+r \choose k} z^{k} ; \\
+    & \frac{\mathcal{E}_{t}(z)^{r}}{1-z t \mathcal{E}_{t}(z)^{t}}=\sum_{k \geqslant 0} \frac{(t k+r)^{k}}{k !} z^{k} .
+    \end{aligned}
+\end{equation}
+
+表5-5 一般的卷积恒等式
+\setcounter{equation}{61}
+\begin{equation}
+    \sum_{k}{t k+r \choose k}{t n-t k+s \choose n-k} \frac{r}{t k+r}={t n+r+s \choose n}
+\end{equation}
+
+\setcounter{equation}{65}
+t为1的指数级数
+\begin{equation}
+    \mathcal{E}_1(z) = \mathcal{E}(z)=\sum_{k \geqslant 0}(k+1)^{k-1} \frac{z^{k}}{k !}=1+z+\frac{3}{2} z^{2}+\frac{8}{3} z^{3}+\frac{125}{24} z^{4}+\cdots
+\end{equation}
+
+\begin{align}
+    \mathcal{E}(z)=\mathrm{e}^{z \varepsilon(z)}
+\end{align}
+
+\begin{align*}
+    \mathcal{E}(\ln z)= z^{z^{z^{z^{...}}}}
+\end{align*}
+
+$B_2, B_{-1}$封闭形式
+\begin{equation}
+    \mathcal{B}_{2}(z)=\sum_{k}{2 k \choose k} \frac{z^{k}}{1+k}=\sum_{k}{2 k+1 \choose k} \frac{z^{k}}{1+2 k}=\frac{1-\sqrt{1-4 z}}{2 z}
+\end{equation}
+
+\begin{equation}
+    \mathcal{B}_{-1}(z)=\sum_{k}{1-k \choose k} \frac{z^{k}}{1-k}=\sum_{k}{2 k-1 \choose k} \frac{(-z)^{k}}{1-2 k}=\frac{1+\sqrt{1+4 z}}{2}
+\end{equation}
+
+\begin{equation}
+    \mathcal{B}_{2}(z)^{r}=\sum_{k}{2 k+r \choose k} \frac{r}{2 k+r} z^{k}
+\end{equation}
+
+\begin{equation}
+    \mathcal{B}_{-1}(z)^{r}=\sum_{k}{r-k \choose k} \frac{r}{r-k} z^{k}
+\end{equation}
+
+\begin{equation}
+    \frac{\mathcal{B}_{2}(z)^{r}}{\sqrt{1-4 z}}=\sum_{k}{2 k+r \choose k} z^{k}
+\end{equation}
+
+\begin{equation}
+    \frac{\mathcal{B}_{-1}(z)^{r+1}}{\sqrt{1+4 z}}=\sum_{k}{r-k \choose k} z^{k}
+\end{equation}
+
+\begin{equation}
+    \sum_{k \leqslant n}{n-k \choose k} z^{k}=\frac{1}{\sqrt{1+4 z}}\left(\left(\frac{1+\sqrt{1+4 z}}{2}\right)^{n+1}-\left(\frac{1-\sqrt{1+4 z}}{2}\right)^{n+1}\right) \text {, 整数 } n \geqslant 0
+\end{equation}
+
+\begin{equation}
+    \sum_{k<n}{n-k \choose k} \frac{n}{n-k} z^{k}=\left(\frac{1+\sqrt{1+4 z}}{2}\right)^{n}+\left(\frac{1-\sqrt{1+4 z}}{2}\right)^{n} \text {, 整数 } n>0
+\end{equation}
+
+\section{超几何函数}
+
+\setcounter{equation}{75}
+\begin{equation}
+    F\left(\left.\begin{array}{c}
+    a_{1}, \cdots, a_{m} \\
+    b_{1}, \cdots, b_{n}
+    \end{array}\right| z\right)=\sum_{k \geqslant 0} \frac{a_{1}^{\bar{k}} \cdots a_{m}^{\bar{k}} z^{k}}{b_{1}^{\bar{k}} \cdots b_{n}^{\bar{k}} k !}
+\end{equation}
+带有m个上参数，n个下参数。对于参数个数为0的情况，可以上下添加一个常数1而不会影响（参数个数仍然是0个）。
+
+如m=1, n=0的情况对应
+
+\begin{equation}
+    F\left(\begin{array}{c}
+    a, 1 \\
+    1
+    \end{array} \mid z\right)=\sum_{k \geqslant 0} a^{\bar{k}} \frac{z^{k}}{k !}=\sum_{k}{a+k-1 \choose k} z^{k}=\frac{1}{(1-z)^{a}}
+\end{equation}
+
+m=0, n=1为修正贝塞尔函数（ modified Bessel function ）
+\begin{equation}
+    F\left(\begin{array}{c}
+    1 \\
+    b, 1
+    \end{array} \mid z\right)=\sum_{k \geqslant 0} \frac{(b-1) !}{(b-1+k) !} \frac{z^{k}}{k !}=I_{b-1}(2 \sqrt{z}) \frac{(b-1) !}{z^{(b-1) / 2}}
+\end{equation}
+
+m=1, n=1为合流超几何级数（ confluent hypergeometric series ） 
+\begin{equation}
+    F\left(\begin{array}{l}
+    a \\
+    b
+    \end{array} \mid z\right)=\sum_{k \geqslant 0} \frac{a^{\bar{k}}}{b^{\bar{k}}} \frac{z^{k}}{k !}=M(a, b, z) .
+\end{equation}
+
+而m=2, n=1被称为高斯超几何函数
+\begin{equation}
+    \left.F\left(\begin{array}{c}
+    a, b \\
+    c
+    \end{array}\right| z\right)=\sum_{k \geqslant 0} \frac{a^{\bar{k}} b^{\bar{k}} z^{k}}{c^{\bar{k}} k !} .
+\end{equation}
+今天，在许多大学 的物理学、工程学甚 至数学专业的学生 所学习的函数中，即 使不是 100\% ， 也必定 有 95\% 的函数被这单 个的符号F ( a , b ; c ; x ) 所涵盖．”   —— W.W. 索耶 [318]
+
+超几何级数恰好就是首项为 1 且项的比值 $t_{k+1} /t_{k}$ 是 k 的有理函数的那些级数
+\begin{equation}
+    \begin{aligned}
+    \frac{t_{k+1}}{t_{k}} &=\frac{a_{1}^{\overline{k+1}} \cdots a_{m}^{\overline{k+1}}}{a_{1}^{\bar{k}} \cdots a_{m}^{\bar{k}}} \frac{b_{1}^{\bar{k}} \cdots b_{n}^{\bar{k}}}{b_{1}^{\overline{k+1}} \cdots b_{n}^{\overline{k+1}}} \frac{k !}{(k+1) !} \frac{z^{k+1}}{z^{k}} \\
+    &=\frac{\left(k+a_{1}\right) \ldots\left(k+a_{m}\right) z}{\left(k+b_{1}\right) \ldots\left(k+b_{n}\right)(k+1)}
+    \end{aligned}
+\end{equation}
+
+平行求和公式表示为超几何函数
+\begin{equation}
+    F\left(\begin{array}{c}
+    1,-n \\
+    -n-r
+    \end{array} \mid 1\right)=\frac{r+n+1}{r+1} \text {, 如果 }{r+n \choose n} \neq 0
+\end{equation}
+
+阶乘推广
+\begin{equation}
+    \frac{1}{z!} = \lim_{n\rightarrow \infty} {n+z \choose n}n^{-z}
+\end{equation}
+
+\begin{equation}
+    z! = \int_0^{\infin}t^ze^{-t}dt, R_z>-1
+\end{equation}
+
+\begin{equation}
+    z! = z(z-1)!
+\end{equation}
+
+\begin{equation}
+    \Gamma(z+1) = z!
+\end{equation}
+
+\begin{equation}
+    (-z)!\Gamma(z) = \frac{\pi}{\sin{\pi z}}
+\end{equation}
+
+\begin{equation}
+    z^{\underline{w}} = \frac{z!}{(z-w)!}
+\end{equation}
+
+\begin{equation}
+    z^{\bar{w}} = \frac{\Gamma(z+w)}{\Gamma(z)}
+\end{equation}
+
+\begin{equation}
+    {z \choose w}=\lim _{\zeta \rightarrow z} \lim _{\omega \rightarrow w} \frac{\zeta !}{\omega !(\zeta-\omega) !}
+\end{equation}
+
+范德蒙卷积超几何函数表示
+\begin{equation}
+    {s \choose n} F{-r,-n \choose s-n+1}={r+s \choose n}
+\end{equation}
+ 
+\begin{equation}
+    F\left(\begin{array}{c}
+    a, b \\
+    c
+    \end{array} \mid 1\right)=\frac{\Gamma(c-a-b) \Gamma(c)}{\Gamma(c-a) \Gamma(c-b)} ; \text { 整数 } b \leqslant 0 \text {, 或者 } \mathfrak{c} c>\Re a+\Re b .
+\end{equation}
+
+\begin{equation}
+    F\left(\begin{array}{c}
+    a,-n \\
+    c
+    \end{array} \mid 1\right)=\frac{(c-a)^{\bar{n}}}{c^{\bar{n}}}=\frac{(a-c)^{\frac{n}{n}}}{(-c)^{n}}, \quad \text { 整数 } n \geqslant 0
+\end{equation}
+
+库默尔公式
+\begin{equation}
+    F\left(\begin{array}{c}
+    a, b \\
+    1+b-a
+    \end{array} \mid-1\right)=\frac{(b / 2) !}{b !}(b-a)^{b / 2}
+\end{equation}
+
+（ 5.29 ）中的三重二项和式可以写成
+\begin{align*}
+F \left(\left.\begin{array}{c}
+    1-a-2 n, 1-b-2 n,-2 n \\
+    a, b
+    \end{array}\right| 1 \right) =(-1)^{n} \frac{(2 n) !}{n !} \frac{(a+b+2 n-1)^{\bar{n}}}{a^{\bar{n}} b^{\bar{n}}}, \text { 整数 } n \geqslant 0 .
+\end{align*}
+
+当这个公式推广到复数时, 它被称为迪克逊公式 (Dixon's formula ):
+\setcounter{equation}{95}
+\begin{equation}
+    F\left(\begin{array}{c}
+    a, b, c \\
+    1+c-a, 1+c-b
+    \end{array} \mid 1\right)=\frac{(c / 2) !}{c !} \frac{(c-a)^{c / 2}(c-b)^{c / 2}}{(c-a-b)^{c / 2}}, \Re a+\Re b<1+\Re c / 2
+\end{equation}
+
+我们遇到过的最一般的公式之一是三重二项和式（ 5.28 ） ，它可推出Saalschütz恒等式（ Saalschütz’s identity ）
+\begin{equation}
+    \begin{aligned}
+    F\left(\begin{array}{c}
+    a, b,-n \\
+    c, a+b-c-n+1
+    \end{array} \mid 1\right) &=\frac{(c-a)^{\bar{n}}(c-b)^{\bar{n}}}{c^{\bar{n}}(c-a-b)^{\bar{n}}}, \text { 整数 } n \geqslant 0 \\
+    &=\frac{(a-c)^{\underline{n}}(b-c)^{\underline{n}}}{(-c)^{\frac{n}{n}}(a+b-c)^{\underline{n}}}
+    \end{aligned}
+\end{equation}
+
+\section{超几何变换}
+\setcounter{equation}{99}
+二项式系数部分和，只有当m接近于0, n/2, n时才有封闭形式
+\begin{equation}
+    {n \choose m} F\left(\begin{array}{c}
+    1,-m \\
+    n-m+1
+    \end{array} \mid-1\right) \text {, 整数 } n \geqslant m \geqslant 0 \text {; }
+\end{equation}
+
+普法夫反射定律
+\begin{equation}
+    \frac{1}{(1-z)^{a}} F\left(\begin{array}{c|c}
+        a, b & -z \\
+        c & 1-z
+        \end{array}\right)=F\left(\left.\begin{array}{c}
+        a, c-b \\
+        c
+    \end{array}\right| z\right)
+\end{equation}
+
+库默尔公式（ 5.94 ）与反射定律（ 5.101 ）结合起来
+\begin{equation}
+    \begin{aligned}
+    2^{-a} F\left(\begin{array}{c|c}
+    a, 1-a \\
+    1+b-a & \frac{1}{2}
+    \end{array}\right) &=F\left(\begin{array}{c}
+    a, b \\
+    1+b-a
+    \end{array} \mid-1\right) \\
+    &=\frac{(b / 2) !}{b !}(b-a)^{\frac{b / 2}{}}
+    \end{aligned}
+\end{equation}
+
+\setcounter{equation}{105}
+\begin{equation}
+    \begin{aligned}
+    &\frac{d}{d z} F\left(\begin{array}{l}
+    a_{1}, \cdots, a_{m} \\
+    b_{1}, \cdots, b_{n}
+    \end{array} \mid z\right)=\sum_{k \geqslant 1} \frac{a_{1}^{\bar{k}} \cdots a_{m}^{\bar{k}} z^{k-1}}{b_{1}^{\bar{k}} \cdots b_{n}^{\bar{k}}(k-1) !}\\
+    &=\sum_{k+1 \geqslant 1} \frac{a_{1}^{\overline{k+1}} \cdots a_{m}^{\overline{k+1}} z^{k}}{b_{1}^{\overline{k+1}} \cdots b_{n}^{\overline{k+1}} k !}\\
+    &=\sum_{k \geqslant 0} \frac{a_{1}\left(a_{1}+1\right)^{\bar{k}} \cdots a_{m}\left(a_{m}+1\right)^{\bar{k}} z^{k}}{b_{1}\left(b_{1}+1\right)^{\bar{k}} \cdots b_{n}\left(b_{n}+1\right)^{\bar{k}} k !}\\
+    &=\frac{a_{1} \ldots a_{m}}{b_{1} \ldots b_{n}} F\left(\begin{array}{ll}
+    a_{1}+1, \ldots, & a_{m}+1 \\
+    b_{1}+1, \ldots, & b_{n}+1
+    \end{array} \mid z\right) \text {. }
+    \end{aligned}
+\end{equation}
+
+\begin{equation}
+    \mathrm{D}\left(\vartheta+b_{1}-1\right) \cdots\left(\vartheta+b_{n}-1\right) F=\left(\vartheta+a_{1}\right) \cdots\left(\vartheta+a_{m}\right) F,
+\end{equation}
+
+F(a, b; c; z)满足的微分方程
+\begin{equation}
+    z(1-z) F^{\prime \prime}(z)+(c-z(a+b+1)) F^{\prime}(z)-a b F(z)=0
+\end{equation}
+
+\setcounter{equation}{109}
+\begin{equation}
+    \left.\left.F\left(\begin{array}{c}
+    2 a, 2 b \\
+    a+b+\frac{1}{2}
+    \end{array}\right| z\right)=F\left(\begin{array}{c}
+    a, b \\
+    a+b+\frac{1}{2}
+    \end{array}\right| 4 z(1-z)\right)
+\end{equation}
+
+\section{Gosper算法}
+
+\setcounter{equation}{114}
+\begin{equation}
+    F\left(\begin{array}{c}
+        a_{1}, \cdots, a_{m} \\
+        b_{1}, \cdots, b_{n}
+    \end{array} \mid z\right)_{k}=\frac{a_{1}^{\bar{k}} \cdots a_{m}^{\bar{k}}}{b_{1}^{\bar{k}} \cdots b_{n}^{\bar{k}}} \frac{z^{k}}{k !}
+\end{equation}
+
+\begin{equation}
+    \sum F\left(\begin{array}{l}
+        a_{1}, \cdots, a_{m} \\
+        b_{1}, \cdots, b_{n}
+        \end{array} \mid z\right)_{k} \delta k=c F\left(\begin{array}{l}
+        A_{1}, \cdots, A_{M} \\
+        B_{1}, \cdots, B_{N}
+        \end{array} \mid Z\right)_{k}+C .
+\end{equation}
+
+\begin{equation}
+    \frac{t(k+1)}{t(k)}=\frac{p(k+1)}{p(k)} \frac{q(k)}{r(k+1)}
+\end{equation}
+
+\begin{equation}
+    \begin{gathered}
+    (k+\alpha) | q(k) \text { 以及 }(k+\beta) | r(k) \\
+    \Rightarrow \alpha-\beta \text { 不是正整数 }
+    \end{gathered}
+\end{equation}
+
+\begin{equation}
+    p(k)(k+\alpha-1)^{\frac{N-1}{}}=p(k)(k+\alpha-1)(k+\alpha-2) \cdots(k+\beta+1)
+\end{equation}
+
+\begin{equation}
+    t(k)=T(k+1)-T(k)
+\end{equation}
+
+\begin{equation}
+    T(k)=\frac{r(k) s(k) t(k)}{p(k)}
+\end{equation}
+
+\begin{equation}
+    p(k)=q(k) s(k+1)-r(k) s(k)
+\end{equation}
+
+\begin{equation}
+    s(k)=\alpha_{d} k^{d}+\alpha_{d-1} k^{d-1}+\cdots+\alpha_{0}, \quad \alpha_{d} \neq 0
+\end{equation}
+
+\begin{equation}
+    2 p(k)=Q(k)(s(k+1)+s(k))+R(k)(s(k+1)-s(k))
+\end{equation}
+
+\section{机械求和法}
+
+\setcounter{equation}{125}
+\begin{equation}
+    \hat{t}(n, k)=\beta_{0}(n) t(n, k)+\beta_{1}(n) t(n+1, k)
+\end{equation}
+
+\begin{equation}
+    \frac{\hat{t}(n, k+1)}{\hat{t}(n, k)}=\frac{\hat{p}(n, k+1)}{\hat{p}(n, k)} \frac{q(n, k)}{r(n, k+1)} .
+\end{equation}
+
+\begin{equation}
+    \frac{\bar{t}(n, k+1)}{\bar{t}(n, k)}=\frac{\bar{p}(n, k+1)}{\bar{p}(n, k)} \frac{q(n, k)}{r(n, k+1)} .
+\end{equation}
+
+\begin{equation}
+    \hat{p}(n, k)=q(n, k) s(n, k+1)-r(n, k) s(n, k)
+\end{equation}
+
+\begin{equation}
+    s(n, k)=\alpha_{d}(n) k^{d}+\alpha_{d-1}(n) k^{d-1}+\cdots+\alpha_{0}(n)
+\end{equation}
+
+\begin{equation}
+    T(n, k)=\frac{r(n, k) s(n, k) \hat{t}(n, k)}{\hat{p}(n, k)}=r(n, k) s(n, k) \bar{t}(n, k)
+\end{equation}
