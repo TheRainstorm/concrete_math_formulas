@@ -1,0 +1,590 @@
+\setcounter{chapter}{6}
+\chapter{7}
+
+\setcounter{section}{1}
+\section{基本策略}
+\subsection{生成函数运算(表7-1)}
+\setcounter{equation}{12}
+\begin{align}
+    \alpha F(z)+\beta G(z) & =\sum_{n}\left(\alpha f_{n}+\beta g_{n}\right) z^{n}
+\end{align}
+\begin{align}
+    z^mG(z) & =\sum_{n} g_{n-m} z^{n}, \quad \text { 整数 } m \ge 0
+\end{align}
+\begin{align}
+    \frac{G(z)-g_{0}-g_{1} z-\cdots-g_{m-1} z^{m-1}}{z^{m}} & =\sum_{n \ge 0} g_{n+m} z^{n}, \quad \text { 整数 } m \ge 0
+\end{align}
+\begin{align}
+    G(c z) & =\sum_{n} c^{n} g_{n} z^{n}
+\end{align}
+\begin{align}
+    G^{\prime}(z) & =\sum_{n}(n+1) g_{n+1} z^{n}
+\end{align}
+\begin{align}
+    z G^{\prime}(z) & =\sum_{n} n g_{n} z^{n}
+\end{align}
+\begin{align}
+    \int_{0}^{z} G(t) \mathrm{d} t & =\sum_{n \ge 1} \frac{1}{n} g_{n-1} z^{n}
+\end{align}
+\begin{align}
+    F(z) G(z) & =\sum_{n}\left(\sum_{k} f_{k} g_{n-k}\right) z^{n}
+\end{align}
+
+\begin{equation}
+    \frac{1}{1-z} G(z)=\sum_{n}\left(\sum_{k \leqslant n} g_{k}\right) z^{n}
+\end{equation}
+
+\subsection{表7-2 简单的数列及其生成函数}
+\begin{align*}
+    \begin{array}{lcc}
+        <1,1,1,1,1,1, \cdots>                       & \sum_{n \ge 0} z^{n}                 & \frac{1}{1-z}       \\
+        <1,-1,1,-1,1,-1, \cdots>                    & \sum_{n \ge 0}[-1]^{n} z^{n}         & \frac{1}{1+z}       \\
+        <1,0,1,0,1,0, \cdots>                       & \sum_{n \ge 0}[2 \backslash n] z^{n} & \frac{1}{1-z^{2}}   \\
+        <1,0, \cdots, 0,1,0, \cdots, 0,1,0, \cdots> & \sum_{n \ge 0}[m \backslash n] z^{n} & \frac{1}{1-z^{m}}   \\
+        <1,2,3,4,5,6, \cdots>                       & \sum_{n \ge 0}(n+1) z^{n}            & \frac{1}{(1-z)^{2}} \\
+        \left\langle 1, c, {c \choose 2}, {c \choose 3} \dots \right\rangle & \sum_{n \ge 0} {c \choose n} z^{n}    & (1+z)^c\\
+        \left\langle 1, c, {c+1 \choose 2}, {c+2 \choose 3} \dots \right\rangle & \sum_{n \ge 0} {c+n-1 \choose n} z^{n}    & \frac{1}{(1-z)^c}\\
+        \left\langle 1, {m+1 \choose m}, {m+2 \choose m} \dots \right\rangle & \sum_{n \ge 0} {m+n \choose m} z^{n}    & \frac{1}{(1-z)^{m+1}}\\
+        \left\langle 0,1,-\frac{1}{2}, \frac{1}{3},-\frac{1}{4}, \ldots\right\rangle & \sum_{n \ge 1} \frac{(-1)^{n+1}}{n} z^{n} & \ln (1+z) \\
+        \left\langle 1,1, \frac{1}{2}, \frac{1}{6}, \frac{1}{24}, \frac{1}{120}, \ldots\right\rangle & \sum_{n \ge 0} \frac{1}{n !} z^{n} & \mathrm{e}^{z}\\
+        \left\langle 0,1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \ldots\right\rangle & \sum_{n \ge 1} \frac{1}{n} z^{n} & \ln \frac{1}{1-z}
+\end{array}
+\end{align*}
+
+\begin{equation}
+    \frac{G(z)+G(-z)}{2}=\sum_{n} g_{2 n} z^{2 n}
+\end{equation}
+
+\begin{equation}
+    \frac{G(z)-G(-z)}{2}=\sum_{n} g_{2 n+1} z^{2 n+1}
+\end{equation}
+
+斐波那契数列例子
+\begin{align*}
+    \sum_{n} F_{n} z^{n}=\frac{z}{1-z-z^{2}}\\
+    \sum_{n} F_{2n} z^{2n}= \frac{z^{2}}{1-3 z^{2}+z^{4}} \\
+\end{align*}
+故
+\begin{align}
+    \sum_{n} F_{2n} z^{n}= \frac{z}{1-3 z+z^{2}}
+\end{align}
+
+\section{解递归式}
+
+\subsection{一般过程}
+\begin{itemize}
+    \item 用生成函数表示递推式（生成函数系数为数列）
+    \item 对生成函函数进行计算
+    \item 求解生成函数系数
+\end{itemize}
+
+\subsection{有理函数展开定理}
+对于有理函数(其中$P, Q$为多项式函数)
+\begin{align*}
+    R(z) = \frac{P(z)}{Q(z)}
+\end{align*}
+
+可以尝试将其分解为
+\begin{align*}
+    R(z) = T(z) + S(z)
+\end{align*}
+
+其中$T(z)$为多项式，$S(z)$为若干简单的有理函数和
+\setcounter{equation}{25}
+\begin{equation}
+    S(z)=\frac{a_{1}}{\left(1-\rho_{1} z\right)^{m_{1}+1}}+\frac{a_{2}}{\left(1-\rho_{2} z\right)^{m_{2}+1}}+\cdots+\frac{a_{l}}{\left(1-\rho_{l} z\right)^{m_{l}+1}}
+\end{equation}
+
+因为形式如下的有理函数系数容易求
+\setcounter{equation}{24}
+\begin{equation}
+    \frac{a}{(1-\rho z)^{m+1}}=\sum_{n \ge 0}{m+n  \choose m} a \rho^{n} z^{n}
+\end{equation}
+
+所以
+\setcounter{equation}{26}
+\begin{equation}
+    \left[z^{n}\right] S(z)=a_{1}{m_{1}+n  \choose m_{1}} \rho_{1}^{n}+a_{2}{m_{2}+n  \choose m_{2}} \rho_{2}^{n}+\cdots+a_{l}{m_{l}+n  \choose m_{l}} \rho_{l}^{n}
+\end{equation}
+
+\noindent \textbf{不同根的有理展开定理}
+
+$R(z) = P(z)/Q(z)$。如果$Q(z)=q_{0}\left(1-\rho_{1} z\right) \cdots\left(1-\rho_{l} z\right)$，且根不同，则
+\setcounter{equation}{28}
+\begin{equation}
+    \left[z^{n}\right] R(z)=a_{1} \rho_{1}^{n}+\cdots+a_{l} \rho_{l}^{n}, \quad \text { 其中 } a_{k}=\frac{-\rho_{k} P\left(1 / \rho_{k}\right)}{Q^{\prime}\left(1 / \rho_{k}\right)}
+\end{equation}
+
+\noindent \textbf{有理生成函数的一般展开定理}
+
+如果$Q(z)=q_{0}\left(1-\rho_{1} z\right)^{d_{1}} \cdots\left(1-\rho_{l} z\right)^{d_{l}}$，且$P(z)$次数小于$d_1+d_2+...d_l$，则
+\begin{equation}
+    \left[z^{n}\right] R(z)=f_{1}(n) \rho_{1}^{n}+\cdots+f_{l}(n) \rho_{l}^{n} \text {, 所有 } n \ge 0
+\end{equation}
+其中每一个 $f_{k}(n)$ 都是一个次数为 $d_{k}-1$ 且首项系数为
+\begin{equation}
+    \begin{aligned}
+    a_{k} &=\frac{\left(-\rho_{k}\right)^{d_{k}} P\left(1 / \rho_{k}\right) d_{k}}{Q^{\left(d_{k}\right)}\left(1 / \rho_{k}\right)} \\
+    &=\frac{P\left(1 / \rho_{k}\right)}{\left(d_{k}-1\right) ! q_{0} \prod_{j \neq k}\left(1-\rho_{j} / \rho_{k}\right)^{d_{j}}}
+    \end{aligned}
+\end{equation}
+第二项表示可以避免求导，计算最为方便
+
+当遇到$Q(z)$包含$(1+z^2)$这种没有实数根的因子时，可以单独处理该因子，最后使用卷积得到系数。（或者也可以尝试使用虚数？）
+
+\subsection{例子：带几分随机性的递归式}
+\begin{align*}
+    \begin{aligned}
+    &g_{0}=g_{1}=1 ; \\
+    &g_{n}=g_{n-1}+2 g_{n-2}+(-1)^{n}, \quad n \ge 2
+    \end{aligned}
+\end{align*}
+扩展等式，使得对所有整数n成立
+\begin{align*}
+    g_{n}=g_{n-1}+2 g_{n-2}+(-1)^{n}[n \ge 0]+[n=1]
+\end{align*}
+用生成函数表示递推式
+\begin{align*}
+    \begin{aligned}
+    G(z) &=z G(z)+2 z^{2} G(z)+\frac{1}{1+z}+z
+    \end{aligned}
+\end{align*}
+求解生成函数
+\begin{align*}
+    G(z)=\frac{1+z+z^{2}}{(1-2 z)(1+z)^{2}}
+\end{align*}
+因此可以待定系数
+\begin{align*}
+    g_{n}=a_{1} 2^{n}+\left(a_{2} n+c\right)(-1)^{n}
+\end{align*}
+使用(7.31)式($\rho_1 = 2, \rho_2 = -1, q_0 = 1$)
+\begin{align*}
+    a_{1}=\frac{1+1 / 2+1 / 4}{(1+1 / 2)^{2}}=\frac{7}{9}, \quad a_{2}=\frac{1-1+1}{1-2 /(-1)}=\frac{1}{3}
+\end{align*}
+最后一个c待定系数
+\begin{align*}
+    g_{n}=\frac{7}{9} 2^{n}+\left(\frac{1}{3} n+\frac{2}{9}\right)(-1)^{n}
+\end{align*}
+
+\subsection{例子：找零钱}
+
+\begin{align*}
+    \check{C}(z)=\frac{1}{1-z} \frac{1}{1-z} \frac{1}{1-z^{2}} \frac{1}{1-z^{5}} \frac{1}{1-z^{10}}
+\end{align*}
+
+\setcounter{equation}{38}
+\begin{equation}
+    \check{C}(z)=\frac{A(z)}{\left(1-z^{10}\right)^{5}} \text {, 其中 } A(z)=A_{0}+A_{1} z+\cdots+A_{31} z^{31} \text {. }
+\end{equation}
+
+\begin{align*}
+    \frac{1}{(1-z^{10})^5}=\sum_{k \ge 0} {k+4 \choose 4} z^{10 k}
+\end{align*}
+
+\begin{equation}
+    \begin{aligned}
+    \check{C}_{10q+r} &=\sum_{j, k} A_{j}{k+4  \choose 4}[10 q+r=10 k+j] \\
+        &=A_{r}{q+4  \choose 4}+A_{r+10}{q+3  \choose 4}+A_{r+20}{q+2  \choose 4}+A_{r+30}{q+1  \choose 4}
+    \end{aligned}
+\end{equation}
+
+\subsection{例子：生成树}
+
+\begin{equation}
+    f_{n}=f_{n-1}+\sum_{k<n} f_{k}+[n>0]
+\end{equation}
+
+\begin{align*}
+    \begin{aligned}
+        F(z)=\sum_{n} f_{n} z^{n} &=\sum_{n} f_{n-1} z^{n}+\sum_{k, n} f_{k} z^{n}[k<n]+\sum_{n}[n>0] z^{n} \\
+            &=z F(z)+\sum_{k} f_{k} z^{k} \sum_{n}[n>k] z^{n-k}+\frac{z}{1-z} \\
+            &=z F(z)+F(z) \sum_{m>0} z^{m}+\frac{z}{1-z} \\
+            &=z F(z)+F(z) \frac{z}{1-z}+\frac{z}{1-z}
+    \end{aligned}
+\end{align*}
+
+\section{特殊的生成函数}
+\subsection{表7-3 特殊的数的生成函数}
+
+\setcounter{equation}{42}
+\begin{align}
+    \frac{1}{(1-z)^{m+1}} \ln \frac{1}{1-z} &=\sum_{n \geqslant 0}\left(H_{m+n}-H_{m}\right){m+n  \choose n} z^{n} \\
+    \frac{z}{\mathrm{e}^{z}-1} &=\sum_{n \geqslant 0} B_{n} \frac{z^{n}}{n !} \\
+    \frac{F_{m} z}{1-\left(F_{m-1}+F_{m+1}\right) z+(-1)^{m} z^{2}} &=\sum_{n \geqslant 0} F_{m n} z^{n} \\
+    \sum_{k}\left\{\begin{array}{c}
+    m \\
+    k
+    \end{array}\right\} \frac{k ! z^{k}}{(1-z)^{k+1}} &=\sum_{n \geqslant 0} n^{m} z^{n}\\
+    \left(z^{-1}\right)^{-m} &=\frac{z^{m}}{(1-z)(1-2 z) \ldots(1-m z)}=\sum_{n \geqslant 0}\left\{\begin{array}{l}
+    n \\
+    m
+    \end{array}\right\} z^{n} \\
+    z^{\bar{m}} &=z(z+1) \ldots(z+m-1)=\sum_{n \geqslant 0}\left[\begin{array}{l}
+    m \\
+    n
+    \end{array}\right] z^{n} \\
+    \left(\mathrm{e}^{z}-1\right)^{m} &=m ! \sum_{n \geqslant 0}\left\{\begin{array}{l}
+    n \\
+    m
+    \end{array}\right\} \frac{z^{n}}{n !} \\
+    \left(\ln \frac{1}{1-z}\right)^{m} &=m ! \sum_{n \geqslant 0}\left[\begin{array}{l}
+    n \\
+    m
+    \end{array}\right] \frac{z^{n}}{n !}\\
+    \left(\frac{z}{\ln (1+z)}\right)^{m} &=\sum_{n \geqslant 0} \frac{z^{n}}{n !}\left\{\begin{array}{c}
+    m \\
+    m-n
+    \end{array}\right\} /\left(\begin{array}{c}
+    m-1 \\
+    n
+    \end{array}\right) \\
+    \left(\frac{z}{1-\mathrm{e}^{-z}}\right)^{m} &=\sum_{n \geqslant 0} \frac{z^{n}}{n !}\left[\begin{array}{c}
+    m \\
+    m-n
+    \end{array}\right] /\left(\begin{array}{c}
+    m-1 \\
+    n
+    \end{array}\right) \\
+    \mathrm{e}^{z+w z} &=\sum_{m, n \geqslant 0}\left(\begin{array}{c}
+    n \\
+    m
+    \end{array}\right) w^{m} \frac{z^{n}}{n !} \\
+    \mathrm{e}^{w\left(\mathrm{e}^{z}-1\right)} &=\sum_{m, n \geqslant 0}\left\{\begin{array}{l}
+    n \\
+    m
+    \end{array}\right\} w^{m} \frac{z^{n}}{n !} \\
+    \frac{1}{(1-z)^{w}} &=\sum_{m, n \geqslant 0}\left[\begin{array}{c}
+    n \\
+    m
+    \end{array}\right] w^{m} \frac{z^{n}}{n !} \\
+    \frac{1-w}{\mathrm{e}^{(w-1) z}-w} &=\sum_{m, n \geqslant 0}\left\langle\begin{array}{l}
+    n \\
+    m
+    \end{array}\right\rangle w^{m} \frac{z^{n}}{n !}
+\end{align}
+
+(7.43)可以通过对下式左右对x微分得到
+\begin{align*}
+    \frac{1}{(1-z)^{x+1}}=\sum_{n} {x+n \choose n} z^{n}
+\end{align*}
+
+特殊情形
+\begin{equation}
+    \frac{1}{1-z} \ln \frac{1}{1-z}=\sum_{n} H_{n} z^{n}
+\end{equation}
+
+\begin{align}
+    &\left\{\begin{array}{c}
+    m \\
+    m-n
+    \end{array}\right\} /\left(\begin{array}{c}
+    m-1 \\
+    n
+    \end{array}\right)=(-1)^{n+1} n ! m \sigma_{n}(n-m) ; \\
+    &{\left[\begin{array}{c}
+    m \\
+    m-n
+    \end{array}\right] /\left(\begin{array}{c}
+    m-1 \\
+    n
+    \end{array}\right)=n ! m \sigma_{n}(m) .}
+\end{align}
+
+二重生成函数
+\begin{align*}
+    G(w, z)=\sum_{m, n} g_{m, n} w^{m} z^{n}
+\end{align*}
+
+恒等式（7.56）可以表达成更为对称的形式
+\begin{equation}
+    \frac{\mathrm{e}^{w}-\mathrm{e}^{z}}{w \mathrm{e}^{z}-z \mathrm{e}^{w}}=\sum_{m, n \geqslant 0}\left\langle\begin{array}{c}
+    m+n+1 \\
+    m
+    \end{array}\right\rangle \frac{w^{m} z^{n}}{(m+n+1) !}
+\end{equation}
+
+\section{卷积}
+\subsection{例1 斐波那契卷积}
+\begin{align*}
+    F(z)^{2} &=\left(\frac{1}{\sqrt{5}}\left(\frac{1}{1-\phi z}-\frac{1}{1-\hat{\phi} z}\right)\right)^{2} \\
+    &=\frac{1}{5}\left(\frac{1}{(1-\phi z)^{2}}-\frac{2}{(1-\phi z)(1-\hat{\phi} z)}+\frac{1}{(1-\hat{\phi} z)^{2}}\right) \\
+    &=\frac{1}{5} \sum_{n \geqslant 0}(n+1) \phi^{n} z^{n}-\frac{2}{5} \sum_{n \geqslant 0} F_{n+1} z^{n}+\frac{1}{5} \sum_{n \geqslant 0}(n+1) \hat{\phi}^{n} z^{n}
+\end{align*}
+
+\begin{align*}
+    \phi^{n}+\hat{\phi}^{n} &=\left[z^{n}\right]\left(\frac{1}{1-\phi z}+\frac{1}{1-\hat{\phi} z}\right) \\
+    &=\left[z^{n}\right] \frac{2-(\phi+\hat{\phi}) z}{(1-\phi z)(1-\hat{\phi} z)}=\left[z^{n}\right] \frac{2-z}{1-z-z^{2}}=2 F_{n+1}-F_{n}
+\end{align*}
+
+\begin{equation}
+    \sum_{k=0}^{n} F_{k} F_{n-k}= [z^n] F^2(z) = \frac{2 n F_{n+1}-(n+1) F_{n}}{5}
+\end{equation}
+
+\subsection{例2 调和卷积}
+\begin{align*}
+    T_{m, n}=\sum_{0 \leqslant k<n}{k  \choose m} \frac{1}{n-k}
+\end{align*}
+看成卷积，很容易得到答案
+
+有更多的和式可以归结为这一类的卷积
+\begin{align*}
+    \frac{1}{(1-z)^{r+1}} \ln \frac{1}{1-z} \cdot \frac{1}{(1-z)^{s+1}}=\frac{1}{(1-z)^{r+s+2}} \ln \frac{1}{1-z}
+\end{align*}
+
+\begin{equation}
+    \sum_{k}{r+k \choose k}{s+n-k  \choose n-k}\left(H_{r+k}-H_{r}\right)={r+s+n+1  \choose n}\left(H_{r+s+n+1}-H_{r+s+1}\right)
+\end{equation}
+
+\subsection{例3 卷积的卷积}
+G的m重卷积
+\begin{align*}
+    [z^n]G^m(z) = \sum_{k_{1}+k_{2}+\cdots+k_{m}=n} g_{k_{1}} g_{k_{2}} \cdots g_{k_{m}}
+\end{align*}
+
+生成树的另一种表达式
+\begin{equation}
+    f_{n}=\sum_{m>0} \sum_{\substack{k_{1}+k_{2}+\cdots+k_{m}=n \\ k_{1}, k_{2}, \cdots, k_{m}>0}} k_{1} k_{2} \cdots k_{m}
+\end{equation}
+
+有
+\begin{align*}
+    F(z)=G(z)+G(z)^{2}+G(z)^{3}+\cdots=\frac{G(z)}{1-G(z)} \\
+    F(z)=\frac{z}{1-3 z+z^{2}}
+\end{align*}
+
+\subsection{例4 用作卷积的递归式(卡塔兰数)}
+
+\subsubsection*{Catalan数定义1：}
+$x_0, x_1, \dots, x_n$中有多少种插入括号的方法$C_n$，使得乘法的次序完全被指定？
+\setcounter{equation}{65}
+\begin{equation}
+    C_{n}=\sum_{k} C_{k} C_{n-1-k}+[n=0]
+\end{equation}
+
+\begin{align*}
+    C(z) &= zC^2(z) + 1 \\
+    C(z) &=\frac{1-\sqrt{1-4 z}}{2 z} \\
+        &=\sum_{n \geqslant 0}{-1 / 2  \choose n} \frac{(-4 z)^{n}}{n+1}\\
+        & =\sum_{n \geqslant 0}{2 n  \choose n} \frac{z^{n}}{n+1}
+\end{align*}
+
+\subsubsection*{Catalan数定义2：}
+由+1, -1组成的数列，满足$a_1 + a_2 + \dots + a_{2n} = 0$，且所有部分和$\sum_k a_k$非负。该数列的的种数为$C_n$
+
+Raney引理
+如果 $\left\langle x_{1}, x_{2}, \cdots, x_{m}\right\rangle$ 是任何一个其和为 $+1$ 的整数数列, 那么它的循环移位
+$$
+\left\langle x_{1}, x_{2}, \cdots, x_{m}\right\rangle,\left\langle x_{2}, \cdots, x_{m}, x_{1}\right\rangle, \cdots,\left\langle x_{m}, x_{1}, \cdots, x_{m-1}\right\rangle
+$$
+中恰好有一个满足所有的部分和都是正数.
+
+易知Raney数有n个-1，n+1个+1，且第一个数是+1，因此Raney数列和定义Catalan数的数列一一对应。
+\begin{align*}
+    {2 n+1  \choose n} \frac{1}{2 n+1}={2 n  \choose n} \frac{1}{n+1}=C_{n}
+\end{align*}
+
+\subsection{例5 带 m 重卷积的递归式}
+由 1 和 1-m组成的其部分和全为正数且其总和为1的长度为mn+1的数列称为m-Raney数列。易知(1-m)出现n次，1出现mn+1-n。
+
+Raney引理告诉我们，所有部分和皆为正数的数列的个数恰为
+\begin{equation}
+    {m n+1  \choose n} \frac{1}{m n+1}={m n  \choose n} \frac{1}{(m-1) n+1}
+\end{equation}
+称为富斯—卡塔兰（Fuss-Catalan）数$C_n^{(m)}$
+
+\begin{equation}
+    C_{n}^{(m)}=\left(\sum_{n_{1}+n_{2}+\cdots+n_{m}=n-1} C_{n_{1}}^{(m)} C_{n_{2}}^{(m)} \cdots C_{n_{m}}^{(m)}\right)+[n=0]
+\end{equation}
+
+\begin{equation}
+    G(z)=z G(z)^{m}+1
+\end{equation}
+
+Raney引理的一个推广: 如果 $\left\langle x_{1}, x_{2}, \cdots, x_{m}\right\rangle$ 是满足对所有 $j$ 皆有 $x_{j} \leqslant 1$ 的任意一个整数数列, 且 $x_{1}+x_{2}+\cdots+x_{m}=l>0$, 那么循环移位
+$$
+\left\langle x_{1}, x_{2}, \cdots, x_{m}\right\rangle,\left\langle x_{2}, \cdots, x_{m}, x_{1}\right\rangle, \cdots,\left\langle x_{m}, x_{1}, \cdots, x_{m-1}\right\rangle
+$$
+中恰好有 $l$ 个有全部为正的部分和.
+
+\begin{equation}
+    \left[z^{n}\right] G(z)^{l}={m n+l  \choose n} \frac{l}{m n+l}
+\end{equation}
+
+\section{指数生成函数}
+\setcounter{equation}{71}
+\begin{equation}
+    \hat{G}(z)=\sum_{n \geqslant 0} g_{n} \frac{z^{n}}{n !}
+\end{equation}
+
+\begin{equation}
+    \sum_{n \geqslant 0} n g_{n} \frac{z^{n-1}}{n !}=\sum_{n \geqslant 1} g_{n} \frac{z^{n-1}}{(n-1) !}=\sum_{n \geqslant 0} g_{n+1} \frac{z^{n}}{n !}
+\end{equation}
+
+\begin{equation}
+    \int_{0}^{z} \sum_{n \geqslant 0} g_{n} \frac{t^{n}}{n !} \mathrm{d} t=\sum_{n \geqslant 0} g_{n} \frac{z^{n+1}}{(n+1) !}=\sum_{n \geqslant 1} g_{n-1} \frac{z^{n}}{n !}
+\end{equation}
+
+二项卷积
+\begin{equation}
+    h_{n}=\sum_{k}{n  \choose k} f_{k} g_{n-k}
+\end{equation}
+
+伯努利数递归定义
+\begin{align*}
+    \sum_{j=0}^{m}{m+1  \choose j} B_{j}=[m=0], \text { 所有 } m \geqslant 0
+\end{align*}
+
+\begin{equation}
+    \sum_{k}{n  \choose k} B_{k}=B_{n}+[n=1] \text {, 所有 } n \geqslant 0 
+\end{equation}
+由(7.76)通过指数函数卷积，易得$\hat{B}(z)=z /\left(\mathrm{e}^{z}-1\right)$
+
+对于和式
+\begin{align*}
+    S_{m}(n)=0^{m}+1^{m}+2^{m}+\cdots+(n-1)^{m}=\sum_{0 \leqslant k<n} k^{m}
+\end{align*}
+把n看作常数，m看作变量
+\begin{align*}
+    S(z)=S_{0}(n)+S_{1}(n) z+S_{2}(n) z^{2}+\cdots=\sum_{m \geqslant 0} S_{m}(n) z^{m}
+\end{align*}
+\begin{align*}
+    S(z)=\sum_{m \geqslant 0} \sum_{0 \leqslant k<n} k^{m} z^{m}=\sum_{0 \leqslant k<n} \frac{1}{1-k z}
+\end{align*}
+\begin{equation}
+    \begin{aligned}
+    S(z) &=\frac{1}{z}\left(\frac{1}{z^{-1}-0}+\frac{1}{z^{-1}-1}+\cdots+\frac{1}{z^{-1}-n+1}\right) \\
+    &=\frac{1}{z}\left(H_{z^{-1}}-H_{z^{-1}-n}\right),
+    \end{aligned}
+\end{equation}
+
+\begin{align*}
+    \hat{S}(z, n)=S_{0}(n)+S_{1}(n) \frac{z}{1 !}+S_{2}(n) \frac{z^{2}}{2 !}+\cdots=\sum_{m \geqslant 0} S_{m}(n) \frac{z^{m}}{m !}
+\end{align*}
+
+\begin{equation}
+    \hat{S}(z, n)=\frac{\mathrm{e}^{n z}-1}{\mathrm{e}^{z}-1} .
+\end{equation}
+
+\begin{align*}
+    \hat{S}(z, n) &=\hat{B}(z) \frac{\mathrm{e}^{n z}-1}{z} \\
+        &=\left(B_{0} \frac{z^{0}}{0 !}+B_{1} \frac{z^{1}}{1 !}+B_{2} \frac{z^{2}}{2 !}+\cdots\right)\left(n \frac{z^{0}}{1 !}+n^{2} \frac{z^{1}}{2 !}+n^{3} \frac{z^{2}}{3 !}+\cdots\right)
+\end{align*}
+
+有一般公式
+\begin{equation}
+    S_{m-1}(n)=\frac{1}{m}\left(B_{m}(n)-B_{m}(0)\right)
+\end{equation}
+
+其中$B_m$为伯努利多项式
+\begin{equation}
+    B_{m}(x)=\sum_{k}{m  \choose k} B_{k} x^{m-k}
+\end{equation}
+
+书上证明
+
+$B_{m}(x)$的指数生成函数$\hat{B}(z, x)$为$<B_0, B_1, \dots>$和$<1, x, x^2, \dots>$的卷积。因此
+\begin{equation}
+    \hat{B}(z, x)=\sum_{m \geqslant 0} B_{m}(x) \frac{z^{m}}{m !}=\frac{z}{\mathrm{e}^{z}-1} \sum_{m \geqslant 0} x^{m} \frac{z^{m}}{m !}=\frac{z \mathrm{e}^{x z}}{\mathrm{e}^{z}-1}
+\end{equation}
+因此
+\begin{align*}
+    \hat{B}(z, n) - \hat{B}(z, 0) = z\frac{e^{nz} - 1}{e^z-1}
+\end{align*}
+即为$\hat{S}(z, n)$乘上z的结果。
+
+另一个证明
+\begin{align*}
+    \hat{S}(z, n) &=\hat{B}(z) \frac{\mathrm{e}^{n z}-1}{z} \\
+        & = \hat{B}(z) \sum_{m} \frac{n^{m+1}}{(m+1)!}z^m \\
+        & = \hat{B}(z) \sum_{m} \frac{n^{m+1}}{(m+1)}\frac{z^m}{m!} \\
+        S_m(n) &= \sum_{k=0}^{m} {m \choose k} B_k \frac{n^{m+1-k}}{(m+1-k)}\\
+        &= \sum_{k=0}^{m} {m+1 \choose k} B_k \frac{n^{m+1-k}}{(m+1)} \\
+        &= \frac{1}{(m+1)} ((\sum_{k=0}^{m+1} {m+1 \choose k} B_k n^{m+1-k}) - B_{m+1})
+\end{align*}
+
+
+\subsection{完全图生成树}
+
+在一个有 n 个顶点的完全图（complete graph）中有多少棵生成树？我们把这个数记为$t_n$
+
+挑选一个顶点，其它顶点构成 m 个大小为$k_1, k_2, \dots, k_m$的连通分支。有$k_1k_2...k_m$种方式将其连接起来。
+
+\begin{align*}
+    t_{n}=\sum_{m>0} \frac{1}{m !} \sum_{k_{1}+\cdots+k_{m}=n-1}\left(\begin{array}{c}
+    n-1 \\
+    k_{1}, k_{2}, \cdots, k_{m}
+    \end{array}\right) k_{1} k_{2} \cdots k_{m} t_{k_{1}} t_{k_{2}} \cdots t_{k_{m}} \text {, 对所有 } n>1 \text {. }
+\end{align*}
+
+理由如下：有 $\left(\begin{array}{c}n-1 \\ k_{1}, k_{2}, \cdots, k_{m}\end{array}\right)$ 种方式给一列大小分别为 $k_{1}, k_{2}, \cdots, k_{m}$ 的 $m$ 个连通分支指定 $n-1$ 个元素, 有 $t_{k_{1}} t_{k_{2}} \cdots t_{k_{m}}$ 种方式把那些具有生成树的单个连通分支连接起来, 有 $k_{1}, k_{2}, \cdots, k_{m}$ 种 方式将顶点 $n$ 与那些连通分支连接起来; 我们再用 $m$ ! 来除, 因为希望不考虑这些连通分支 的次序
+
+令$u_{n}=n t_{n}$
+\setcounter{equation}{82}
+\begin{align}
+    \frac{u_{n}}{n !}=\sum_{m>0} \frac{1}{m !} \sum_{k_{1}+k_{2}+\cdots+k_{m}=n-1} \frac{u_{k_{1}}}{k_{1} !} \frac{u_{k_{2}}}{k_{2} !} \cdots \frac{u_{k_{m}}}{k_{m} !}, \quad n>1 .
+\end{align}
+
+$$
+\frac{u_{n}}{n !}=\left[z^{n-1}\right] \sum_{m \geqslant 0} \frac{1}{m !} \hat{U}(z)^{m}=\left[z^{n-1}\right] \mathrm{e}^{\hat{U}(z)}=\left[z^{n}\right] z \mathrm{e}^{\hat{U}(z)}
+$$
+
+\begin{equation}
+    \hat{U}(z)=z \mathrm{e}^{\hat{U}(z)}
+\end{equation}
+
+$$
+\mathcal{E}(z)=\mathrm{e}^{z \mathcal{E}(z)}
+$$
+
+\begin{align}
+    t_{n}=\frac{u_{n}}{n}=\frac{n !}{n}\left[z^{n}\right] \hat{U}(z)=(n-1) !\left[z^{n-1}\right] \mathcal{E}(z)=n^{n-2}
+\end{align}
+对$n>0,\{1,2, \cdots, n\}$ 上的完全图恰好有 $n^{n-2}$ 棵生成树.
+
+\section{狄利克雷(Dirichlet)生成函数}
+
+还有其它方式定义生成函数，其中核函数$K_n(z)$原则上应该满足
+$$
+\sum_{n} g_{n} K_{n}(z)=0 \Rightarrow g_{n}=0 \text { (所有 } n \text { ) }
+$$
+
+狄利克雷生成函数(dgf)
+\begin{equation}
+    \tilde{G}(z)=\sum_{n \geqslant 1} \frac{g_{n}}{n^{z}}
+\end{equation}
+
+常数数列 $\langle 1,1,1, \cdots\rangle$ 的狄利克雷生成函数——黎曼$\zeta$函数
+\begin{equation}
+    \sum_{n \geq 1} \frac{1}{n^{z}}=\zeta(z) .
+\end{equation}
+
+卷积
+$$
+\tilde{F}(z) \tilde{G}(z)=\sum_{l, m \geqslant 1} \frac{f_{l}}{l^{z}} \frac{g_{m}}{m^{z}}=\sum_{n \geqslant 1} \frac{1}{n^{z}} \sum_{l, m \geqslant 1} f_{l} g_{m}[l \cdot m=n] .
+$$
+\begin{equation}
+    h_{n}=\sum_{d \backslash n} f_{d} g_{n} / d
+\end{equation}
+
+莫比乌斯数列dgf（$\sum_{d|n} \mu(d) = [n=1]$）
+\begin{equation}
+    \tilde{M}(z) \zeta(z)=\sum_{n \geqslant 1} \frac{[n=1]}{n^{z}}=1
+\end{equation}
+
+当数列 $\left\langle g_{1}, g_{2}, \cdots\right\rangle$ 是积性函数时, 对所有 $n, g_{n}$ 的值都由 $n$ 为素数幂时 $g_{n}$ 的值来决定, 我们能将其狄利克雷生成函数分解成取遍素数的乘积:
+\begin{equation}
+\tilde{G}(z)=\prod_{p \text { 是絭数 }}\left(1+\frac{g_{p}}{p^{2}}+\frac{g_{p^{2}}}{p^{2 z}}+\frac{g_{p^{3}}}{p^{3 z}}+\cdots\right) .
+\end{equation}
+
+\begin{equation}
+    \zeta(z)=\prod_{p \text { 是素数 }}\left(\frac{1}{1-p^{-z}}\right)
+\end{equation}
+
+\begin{equation}
+    \tilde{M}(z)=\prod_{p \text { 是素数 }}\left(1-p^{-z}\right)
+\end{equation}
+
+欧拉函数dgf
+\begin{equation}
+    \tilde{\Phi}(z)=\prod_{p \text { 是素数 }}\left(1+\frac{p-1}{p^{z}-p}\right)=\prod_{p \text { 是素数 }}\left(\frac{1-p^{-z}}{1-p^{1-z}}\right)
+\end{equation}
